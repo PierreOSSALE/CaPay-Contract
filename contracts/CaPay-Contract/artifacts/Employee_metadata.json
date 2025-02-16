@@ -1,0 +1,330 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "companyName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "paymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "CompanyCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "salaryAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmployeeAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					}
+				],
+				"name": "EmployeeRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsSupplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentConfirmed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newPaymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentDateUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentReceived",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_employeeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_salaryAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_operator",
+						"type": "string"
+					}
+				],
+				"name": "addEmployee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_employeeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newSalaryAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "adjustSalary",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_companyName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "month",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "year",
+						"type": "uint256"
+					}
+				],
+				"name": "createCompany",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "getAllEmployees",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "employeeAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "salaryAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "phoneNumber",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "operatorType",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isPaymentConfirmed",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Employee.EmployeeInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getContractBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CaPay-Contract/Employee.sol": "Employee"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CaPay-Contract/Company.sol": {
+			"keccak256": "0xf21866b0d3386c16df4e9503d6aa8a1c9717cef73b4fed5159d8a56a1e3d0940",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://afcf11819a31826147938aafb064a9e216be284adab132cc22b30e695bd1a509",
+				"dweb:/ipfs/QmRjT3uPCbxGGNC6MMV5HQjjwV1HSwe9yxeyLbzchHhFM1"
+			]
+		},
+		"contracts/CaPay-Contract/Employee.sol": {
+			"keccak256": "0xe6c0fbbaa8311561893217eb93803aabd45676d0f845f398aa492afcd5cdc23f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ddc134ae7f352c38fbd93e4e0e076e0e882515c2211f3e8dc938eb09cc02c231",
+				"dweb:/ipfs/QmNyXpr1VJtGpUoFGVCr2BaijuSD5ioMiAdovsMzL9okk6"
+			]
+		}
+	},
+	"version": 1
+}

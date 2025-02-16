@@ -1,0 +1,548 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "companyName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "paymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "CompanyCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "CompanyFundsSupplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "salaryAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmployeeAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					}
+				],
+				"name": "EmployeeRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsSupplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "entity",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "status",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "paymentType",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentAudited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentConfirmed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newPaymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentDateUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "scheduledDate",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentScheduled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "employeeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentSent",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_employeeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_salaryAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_operator",
+						"type": "string"
+					}
+				],
+				"name": "addEmployee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_employeeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newSalaryAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "adjustSalary",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_companyName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "month",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "year",
+						"type": "uint256"
+					}
+				],
+				"name": "createCompany",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "executeScheduledPayments",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "getAllEmployees",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "employeeAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "salaryAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "phoneNumber",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "operatorType",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isPaymentConfirmed",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Employee.EmployeeInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "getCompanyTransactions",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "getContractBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_employeeAddress",
+						"type": "address"
+					}
+				],
+				"name": "getEmployeeTransactions",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_employeeAddresses",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_scheduledDate",
+						"type": "uint256"
+					}
+				],
+				"name": "schedulePayroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "supplyFunds",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CaPay-Contract/SmartContractCaPay.sol": "SmartContractCaPay"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CaPay-Contract/Company.sol": {
+			"keccak256": "0x97c8364b1c9c749e59122aaf3aae24b1c00300e479649fa1aa42a73ec1352e06",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5e578b68b21270a6bfce39f77caefa7131bc178fafd953d98eadb006aff2e7bf",
+				"dweb:/ipfs/QmbR2GnWtFJkP2rsbcmRavStfojd1zN6GRUZTaXNjB9erP"
+			]
+		},
+		"contracts/CaPay-Contract/Employee.sol": {
+			"keccak256": "0x4e4f34c536aff35e8d32a1e89064fbe63fc903b2a800e1d648a8a87fe9d71629",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://27629213fd69905c6c5517d6fd479309dbaa6ec91a64d39cf6e2ea8658fb3043",
+				"dweb:/ipfs/QmVCJ521hVMDKhi4KwktrfY53JEzTX9LSuYYB3rXbXGfYi"
+			]
+		},
+		"contracts/CaPay-Contract/SmartContractCaPay.sol": {
+			"keccak256": "0x8cc5a35b21d72603bafbbd0eb073e04096fa89197876303e46b5b7179228fb5a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cee78f59e23c5b43aa8623b08ee5fdf300d031f0c05764781bd54a3cd375951d",
+				"dweb:/ipfs/QmYsWBiM7vG6CfxU92jcHwNkt7z7qVnU762b9AsPakezMg"
+			]
+		}
+	},
+	"version": 1
+}

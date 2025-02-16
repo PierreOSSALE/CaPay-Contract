@@ -1,0 +1,156 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "companyName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "paymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "CompanyCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsSupplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "companyAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newPaymentDate",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentDateUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_companyName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "month",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "year",
+						"type": "uint256"
+					}
+				],
+				"name": "createCompany",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_companyAddress",
+						"type": "address"
+					}
+				],
+				"name": "getContractBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CaPay-Contract/Company.sol": "Company"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CaPay-Contract/Company.sol": {
+			"keccak256": "0xbc797aa18e6d1eb50dc9e38876710d8aa84886deabb51e964eb7630e756fda93",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ce4539e14329a350db4700853f649423f4e442c06ee03c120721412efc91485",
+				"dweb:/ipfs/QmSRbaTX7ZeqZ1GDoeGTkakcKmrvrCiA7S5T4zHBX9stLR"
+			]
+		}
+	},
+	"version": 1
+}

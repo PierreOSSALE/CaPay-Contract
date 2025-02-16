@@ -1,0 +1,397 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "gatewayType",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "gatewayAddress",
+						"type": "address"
+					}
+				],
+				"name": "GatewayAddressSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bonusAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentInitiated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelPayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "gatewayAddresses",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_gatewayType",
+						"type": "string"
+					}
+				],
+				"name": "getGatewayAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTransactionDetails",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "transactionId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "payer",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "payee",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "status",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "gatewayAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "gatewayType",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "paymentTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bonusAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "paymentType",
+								"type": "string"
+							}
+						],
+						"internalType": "struct PaymentTransaction.PaymentTransactionInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bonusAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_gatewayType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_paymentType",
+						"type": "string"
+					}
+				],
+				"name": "initiatePayment",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_transactionId",
+						"type": "uint256"
+					}
+				],
+				"name": "receivePayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_gatewayType",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_gatewayAddress",
+						"type": "address"
+					}
+				],
+				"name": "setGatewayAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "transactionCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "transactions",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "transactionId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "status",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "gatewayAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "gatewayType",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paymentTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bonusAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "paymentType",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CaPay-Contract/PaymentTransaction.sol": "PaymentTransaction"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CaPay-Contract/PaymentTransaction.sol": {
+			"keccak256": "0xeb3d69aff326767b911fbaba4f989f7b429a9ac92601a4dbecca9ebfbe7c8881",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f62d4ee3cf8b0b5b2ce1f29dea9900438f15abb6d371aa0df9d3c191b07861a6",
+				"dweb:/ipfs/QmRRMpNDzmMZN12c52S3REdPNVeFepusP3uKHsfY7N8bxn"
+			]
+		}
+	},
+	"version": 1
+}
